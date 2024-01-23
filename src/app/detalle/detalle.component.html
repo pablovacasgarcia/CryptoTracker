@@ -1,0 +1,7 @@
+
+<div *ngIf="ajax.detalles">
+    <h2>Nombre: {{ajax.detalles.name}}</h2>
+    <img [src]="ajax.detalles.image.large" alt="">
+    <p *ngIf="ajax.detalles.description.es">{{ajax.detalles.description.es}}</p>
+    <p *ngIf="!ajax.detalles.description.es">{{ajax.detalles.description.en}}</p>
+</div>

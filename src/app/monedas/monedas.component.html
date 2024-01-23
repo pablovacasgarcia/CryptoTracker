@@ -1,0 +1,4 @@
+
+<ul>
+    <p *ngFor="let valor of ajax.items; let i = index" ><a [routerLink]="['/detalle', valor.item.id]"> {{valor.item.name|uppercase}} </a></p>
+</ul>
