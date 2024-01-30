@@ -1,0 +1,49 @@
+.flecha {
+    width: 15px;
+}
+
+table, h2{
+    margin-left: 10vw;
+    width: 80vw;
+    margin-top: 5vh;
+}
+
+table{
+    text-align: center;
+    font-size: 150%;
+}
+
+.seguida:hover{
+    cursor: pointer;
+}
+
+th{
+    border: 1px solid gainsboro;
+    padding: 10px;
+}
+
+th:first-child{
+    border: none;
+}
+
+th:last-child{
+    border: none;
+}
+
+.seguida{
+    height: 50px;
+}
+
+.seguida:hover{
+    border-bottom: 1px solid gainsboro;
+    border-top: 1px solid gainsboro;
+}
+
+.nombre span{
+    font-size: 70%;
+    color: gray;
+}
+
+table{
+    border-bottom: 20vh;
+}

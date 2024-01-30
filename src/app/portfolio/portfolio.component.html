@@ -1,0 +1,24 @@
+<h2>Seguimiento de monedas</h2>
+<table *ngIf="ajax.seguidas">
+    <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Capitalización</th>
+        <th>Volumen</th>
+        <th>Máximo <img class="flecha" src="https://cdn.icon-icons.com/icons2/1094/PNG/512/uparrow_78484.png" alt=""></th>
+        <th>Mínimo <img class="flecha" src="https://www.pngmart.com/files/15/Vector-Arrow-Down-Transparent-PNG.png" alt=""></th>
+        <th></th>
+    </tr>
+    <tr><th></th></tr>
+    <tr *ngFor="let moneda of ajax.seguidas" class="seguida">
+        <td [routerLink]="['/detalle', moneda.id]"><img [src]="moneda.image.small" alt=""></td>
+        <td [routerLink]="['/detalle', moneda.id]" class="nombre">{{moneda.name}} <span>{{moneda.symbol|uppercase}}</span></td>
+        <td [routerLink]="['/detalle', moneda.id]">{{moneda.market_data.current_price.eur}}€</td>
+        <td [routerLink]="['/detalle', moneda.id]">{{moneda.market_data.total_volume.eur}}€</td>
+        <td [routerLink]="['/detalle', moneda.id]">{{moneda.market_data.market_cap.eur}}€</td>
+        <td [routerLink]="['/detalle', moneda.id]">{{ moneda.market_data.high_24h.eur }}€</td>
+        <td [routerLink]="['/detalle', moneda.id]">{{ moneda.market_data.low_24h.eur }}€</td>
+        <td><button class="seguir" (click)="dejarSeguir(moneda.id)">Dejar de seguir</button></td>
+    </tr>
+</table>

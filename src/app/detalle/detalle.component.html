@@ -1,7 +1,36 @@
+<div class="detalles">
+    <button class="volver seguir" (click)="goBack()" routerLinkActive="router-link-active" >Volver</button>
 
-<div *ngIf="ajax.detalles">
-    <h2>Nombre: {{ajax.detalles.name}}</h2>
-    <img [src]="ajax.detalles.image.large" alt="">
-    <p *ngIf="ajax.detalles.description.es">{{ajax.detalles.description.es}}</p>
-    <p *ngIf="!ajax.detalles.description.es">{{ajax.detalles.description.en}}</p>
+    <div *ngIf="ajax.detalles" class="datos">
+        <div>
+            <img [src]="ajax.detalles.image.large" alt="">
+        </div>
+        
+        <div>
+            
+            <h2 class="nombre">{{ajax.detalles.name}} <span>{{ ajax.detalles.symbol|uppercase }}</span></h2>
+
+            <h3 class="precio">{{ajax.detalles.market_data.current_price.eur}}€</h3>
+
+            <p *ngIf="ajax.detalles.description.es" [innerHTML]="ajax.detalles.description.es"></p>
+            <p *ngIf="!ajax.detalles.description.es && ajax.detalles.description.en" [innerHTML]="ajax.detalles.description.en"></p>
+            <p *ngIf="!ajax.detalles.description.es && !ajax.detalles.description.en">Descripción no disponible</p>
+
+            <p class="fecha" *ngIf="ajax.detalles.genesis_date">Surgió el {{ ajax.detalles.genesis_date }}</p>
+
+            <div class="links">
+                <h3>Links:</h3>
+                <a *ngIf="ajax.detalles.links.homepage[0]" [href]="ajax.detalles.links.homepage[0]" target="_blank">Página Principal</a>
+                <a *ngIf="ajax.detalles.links.twitter_screen_name" target="_blank" [href]="'https://twitter.com/'+ajax.detalles.links.twitter_screen_name">Twitter</a>
+                <a *ngIf="ajax.detalles.links.facebook_username" [href]="'https://facebook.com/'+ajax.detalles.links.facebook_username" target="_blank">Facebook</a>
+                <a *ngIf="ajax.detalles.links.repos_url.github[0]" target="_blank" [href]="ajax.detalles.links.repos_url.github[0]">Repositorio GitHub</a>
+            </div>    
+        </div>
+    </div> 
+    <div *ngIf="historial" class="grafica">
+        <canvas id="myChart"></canvas>
+        <button *ngIf="comprobarMoneda(ajax.detalles.id)" class="seguir" (click)="seguir(ajax.detalles.id)">Seguir</button>
+        <button *ngIf="!comprobarMoneda(ajax.detalles.id)" class="seguir" (click)="seguir(ajax.detalles.id)">Dejar de seguir</button>
+    </div> 
+    
 </div>

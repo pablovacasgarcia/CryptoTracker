@@ -1,0 +1,21 @@
+header{
+    font-size: 150%;
+    padding: 10px
+}
+
+.navbar-brand{
+    font-size: 150%;
+}
+
+.btn{
+    font-size: 100%;
+}
+
+.nombre{
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.activelink{
+    text-decoration: underline!important;
+}

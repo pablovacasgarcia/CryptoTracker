@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pie',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './pie.component.html',
   styleUrl: './pie.component.css'
 })

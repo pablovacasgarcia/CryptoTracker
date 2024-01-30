@@ -1,0 +1,21 @@
+.formulario{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin-left: 30vw;
+    margin-bottom: 30vh;
+}
+
+.formulario input{
+    margin-top: 10px;
+    font-size: 150%;
+    text-align: center;
+}
+
+.seguir{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 150%;
+    border-radius: 0;
+}

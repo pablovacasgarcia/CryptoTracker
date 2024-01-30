@@ -1,0 +1,14 @@
+    <div class="formulario">
+        <h1>Bienvenido</h1>
+
+        <input *ngIf="registrarse" type="text" name="nombre" id="nombre" [(ngModel)]="displayName" placeholder="Nombre Completo">
+        <input type="text" name="correo" id="correo" [(ngModel)]="email" placeholder="Correo Electrónico">
+        <input type="password" name="contraseña" id="contraseña" [(ngModel)]="password" placeholder="Contraseña">
+        <input *ngIf="registrarse" type="password" name="contraseña2" id="contraseña2" [(ngModel)]="password2" placeholder="Repita la Contraseña">
+
+        <button class="seguir" *ngIf="!registrarse" (click)="iniciarSesion()" id="login">Iniciar Sesión</button>
+        <button class="seguir" *ngIf="registrarse" (click)="registro()" id="login">Registrarse</button>
+        <button class="seguir" (click)="iniciarSesionGoogle()" id="login">Iniciar Sesión con Google</button>
+        <button class="seguir" *ngIf="registrarse" (click)="registrarse=false" id="login">Ya tengo cuenta</button>
+        <button class="seguir" *ngIf="!registrarse" (click)="registrarse=true" id="login">Crear una cuenta</button>
+    </div>

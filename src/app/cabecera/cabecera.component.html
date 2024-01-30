@@ -1,9 +1,7 @@
 
         
         <header>
-            <nav
-                class="navbar navbar-expand-sm navbar-light bg-light"
-            >
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
                 <div class="container">
                     <a class="navbar-brand" routerLink="">CryptoTracker</a>
                     <button
@@ -20,24 +18,25 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" routerLink="" routerLinkActive="activelink" aria-current="page">Inicio</a>
+                                <a class="nav-link" routerLink="" aria-current="page">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" routerLink="monedas" routerLinkActive="activelink">Monedas</a>
                             </li>
-                            
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="portfolio" routerLinkActive="activelink">Portfolio</a>
+                            </li>
                         </ul>
-                        <form class="d-flex my-2 my-lg-0">
-                            <input
-                                class="form-control me-sm-2"
-                                type="text"
-                                placeholder="Buscar monedas"
-                            />
-                        </form>
+                        <div class="d-flex my-2 my-lg-0" *ngIf="!auth.usuario">
+                            <button routerLink="login" class="btn btn-outline-success my-2 my-sm-0">Iniciar Sesión</button>
+                        </div>
+                        <div class="d-flex my-2 my-lg-0" *ngIf="auth.usuario">
+                            <p class="nombre">{{auth.usuario.displayName|uppercase}}</p>
+                            <button class="btn btn-outline-success my-2 my-sm-0" (click)="cerrarSesion()">Cerrar Sesión</button>
+                        </div>
                     </div>
                 </div>
-            </nav>
-            
+            </nav>            
         </header>
 
      

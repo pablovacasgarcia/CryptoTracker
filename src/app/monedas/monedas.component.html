@@ -1,4 +1,37 @@
 
-<ul>
-    <p *ngFor="let valor of ajax.items; let i = index" ><a [routerLink]="['/detalle', valor.item.id]"> {{valor.item.name|uppercase}} </a></p>
-</ul>
+
+
+
+<input class="form-control me-sm-2 buscar" name="busqueda" type="text" placeholder="Buscar monedas" (keyup)="buscar()" [(ngModel)]="busqueda"/>
+
+<div *ngIf="ajax.items">
+    <div *ngIf="busqueda==''">
+        <h2>Monedas populares</h2>
+        <div *ngFor="let valor of ajax.items; let i = index">
+            <div *ngIf="valor.item" class="moneda">
+                <a [routerLink]="['/detalle', valor.item.id]" class="d-flex"> 
+                    <img [src]="valor.item.small" alt="">
+                    <h4>{{valor.item.name}} <span>{{valor.item.symbol}}</span></h4>
+                    <img [src]="valor.item.data.sparkline" alt="">
+                </a>
+                <button *ngIf="comprobarMoneda(valor.item.id)" class="seguir" (click)="seguir(valor.item.id)">Seguir</button>
+                <button *ngIf="!comprobarMoneda(valor.item.id)" class="seguir" (click)="seguir(valor.item.id)">Dejar de seguir</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="busqueda.length>2">
+        <h2>Resultados</h2>
+        <div class="busqueda">
+            <div *ngFor="let valor of ajax.items; let i = index">
+                <div *ngIf="valor">
+                    <a [routerLink]="['/detalle', valor.id]" class="d-flex">
+                        <img [src]="valor.large" alt="">
+                        <h4>{{valor.name}} <span>{{valor.symbol}}</span></h4>
+                    </a>
+                    <button *ngIf="comprobarMoneda(valor.id)" class="seguir" (click)="seguir(valor.id)">Seguir</button>
+                    <button *ngIf="!comprobarMoneda(valor.id)" class="seguir" (click)="seguir(valor.id)">Dejar de seguir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+.detalles{
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 100px;
+}
+
+.volver{
+    position: absolute;
+    left: 10vw;
+    top: 15%;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;
+}
+
+.datos div{
+    width: 50%;
+}
+
+.nombre{
+    font-weight: bold;
+}
+
+.nombre span{
+    font-size: 70%;
+    color: gray;
+}
+
+.precio{
+    color: rgb(5, 105, 5);
+}
+
+.links a{
+    color: black;
+    margin-right: 20px;
+}
+
+.grafica{
+    position: absolute;
+    width: 35vw;
+    left: 50vw;
+    top: 16vh;
+}
+
+.grafica .seguir{
+    margin-top: 20px;
+    width: 100%;
+    font-size: 150%;
+}
