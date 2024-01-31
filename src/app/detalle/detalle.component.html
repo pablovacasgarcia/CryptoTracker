@@ -29,8 +29,8 @@
     </div> 
     <div *ngIf="historial" class="grafica">
         <canvas id="myChart"></canvas>
-        <button *ngIf="comprobarMoneda(ajax.detalles.id)" class="seguir" (click)="seguir(ajax.detalles.id)">Seguir</button>
-        <button *ngIf="!comprobarMoneda(ajax.detalles.id)" class="seguir" (click)="seguir(ajax.detalles.id)">Dejar de seguir</button>
+        <button *ngIf="ajax.detalles && comprobarMoneda(ajax.detalles.id)" class="seguir" (click)="seguir(ajax.detalles.id)">Seguir</button>
+        <button *ngIf="ajax.detalles && !comprobarMoneda(ajax.detalles.id)" class="seguir" (click)="seguir(ajax.detalles.id)">Dejar de seguir</button>
     </div> 
     
 </div>
